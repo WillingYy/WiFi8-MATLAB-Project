@@ -1,0 +1,57 @@
+>> run_demo
+=== WiFi8 MATLAB Demo ===
+MATLAB version: 25.2.0.2998904 (R2025b)
+
+Arrivals generated: AP1=248 AP2=241 AP3=261 
+
+--- Policy: random ---
+  Conservation: arrivals=750 completions=574 unfinished=176 dropped=0 balanced=1
+  Pooled P95 delay = 420.9761
+  Pooled goodput   = 6946.6667 bits/time
+  ctrlAirtime      = 0.0000
+  failedAirtime    = 0.2011
+  numAttempts      = 696
+  numConflicts     = 457
+  AP1: completed=207 P95=73.8648 goodput=2760.0000 backlogEnd=18 unfinished=18
+  AP2: completed=105 P95=488.5639 goodput=1400.0000 backlogEnd=129 unfinished=129
+  AP3: completed=209 P95=117.1888 goodput=2786.6667 backlogEnd=29 unfinished=29
+
+--- Policy: rr ---
+  Conservation: arrivals=750 completions=749 unfinished=1 dropped=0 balanced=1
+  Pooled P95 delay = 5.0066
+  Pooled goodput   = 8920.0000 bits/time
+  ctrlAirtime      = 0.0663
+  failedAirtime    = 0.0000
+  numAttempts      = 0
+  numConflicts     = 0
+  AP1: completed=223 P95=2.7250 goodput=2973.3333 backlogEnd=0 unfinished=0
+  AP2: completed=215 P95=4.9665 goodput=2866.6667 backlogEnd=0 unfinished=0
+  AP3: completed=231 P95=6.3458 goodput=3080.0000 backlogEnd=1 unfinished=1
+
+--- Policy: queue ---
+  Conservation: arrivals=750 completions=750 unfinished=0 dropped=0 balanced=1
+  Pooled P95 delay = 4.4875
+  Pooled goodput   = 8933.3333 bits/time
+  ctrlAirtime      = 0.0646
+  failedAirtime    = 0.0000
+  numAttempts      = 0
+  numConflicts     = 0
+  AP1: completed=223 P95=3.8831 goodput=2973.3333 backlogEnd=0 unfinished=0
+  AP2: completed=215 P95=5.0855 goodput=2866.6667 backlogEnd=0 unfinished=0
+  AP3: completed=232 P95=4.3955 goodput=3093.3333 backlogEnd=0 unfinished=0
+
+=== Demo complete ===
+To run minimal K3 checks: validate_engine
+>> validate_engine
+=== validate_engine: K3 checks ===
+[PASS] T1: empty queues produce no transmissions
+[PASS] T2: single AP scenario completes packets
+[PASS] T3: arrivals = completions + unfinished
+[PASS] T4: {1,3} is independent on path graph
+[PASS] T5: {1,2} detected as conflicting
+[PASS] T6: queue policy runs and conserves packets
+[PASS] T7: rr policy runs and conserves packets
+[PASS] T8: control airtime counted for coordinated policy
+[PASS] T9: failed airtime field populated (0.2900)
+
+=== validate_engine: 9 passed, 0 failed ===

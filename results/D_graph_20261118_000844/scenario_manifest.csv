@@ -1,0 +1,5 @@
+LoadID,EdgeCount,GraphName,GraphEdges,TotalLambda,MaxConcurrentAPs
+1,0,No edges,[],0.3,2
+2,1,Single edge,[1 2],0.3,2
+3,2,Path,[1 2; 2 3],0.3,2
+4,3,Complete,[1 2; 2 3; 1 3],0.3,2

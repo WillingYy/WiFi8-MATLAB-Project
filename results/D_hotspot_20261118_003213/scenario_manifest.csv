@@ -1,0 +1,3 @@
+LoadID,ScenarioName,HotspotAP,WeightAP1,WeightAP2,WeightAP3,LambdaAP1,LambdaAP2,LambdaAP3
+1,Centre hotspot,2,1,6,1,0.0375,0.225,0.0375
+2,Endpoint hotspot,1,6,1,1,0.225,0.0375,0.0375

@@ -114,4 +114,3 @@ writetable(comparisonTable, ...
 disp(comparisonTable(comparisonTable.AP == 0, :))
 fprintf('Random-access baseline reproducibility checks passed.\n');
 fprintf('Comparison saved to %s\n', analysisDir);
-winopen(analysisDir)

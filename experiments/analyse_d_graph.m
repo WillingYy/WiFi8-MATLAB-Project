@@ -259,4 +259,3 @@ print(f, fullfile(analysisDir, 'graph_results.pdf'), '-dpdf', '-painters');
 savefig(f, fullfile(analysisDir, 'graph_results.fig'));
 
 fprintf('Analysis outputs: %s\n', analysisDir)
-winopen(analysisDir)

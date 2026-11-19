@@ -16,6 +16,8 @@ The paths below are relative to this directory.
 | `docs/B_demo_output.txt` | Earlier demonstration output |
 | `docs/AI_B.md` | Member B's AI-use record |
 
+Literature review materials supplied by Member A are indexed in
+[literature/README.md](literature/README.md).
 ## Using these documents
 
 Contribution documents preserve their original submission context and may

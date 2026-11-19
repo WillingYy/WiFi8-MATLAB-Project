@@ -320,7 +320,6 @@ disp(gainTable(gainTable.AP == 0, :))
 disp(crossingTable)
 
 fprintf('Analysis outputs: %s\n', analysisDir)
-winopen(analysisDir)
 
 
 function [estimate, lower, upper, validCount] = bootstrap_mean_ci(x, idx)

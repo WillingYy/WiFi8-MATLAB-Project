@@ -1,39 +1,29 @@
-# Simulation Configuration / 仿真参数配置
+# Simulation configuration
 
-This folder stores the shared MATLAB simulation configuration.
-本文件夹存放全组统一使用的 MATLAB 仿真参数。
+`default_config.m` returns the shared configuration structure `cfg`.
+These defaults describe the integration demonstration.
 
-Owner: Member B, with input from Members C and D.
-负责人：成员 B；成员 C、D 共同确认。
+| Parameter | Default |
+| --- | --- |
+| AP queues | 3 |
+| Per-AP arrival rates | [0.25, 0.25, 0.25] |
+| Total arrival rate | 0.75 packets per time unit |
+| Data transmission duration | 1 normalized time unit |
+| Random-access slot duration | 1 normalized time unit |
+| Control duration | 0.1 normalized time units |
+| Packet payload | 12000 bits |
+| Simulation horizon / warmup | 1000 / 100 |
+| Arrival seed / access seed | 101 / 202 |
+| Conflict edges | AP1–AP2 and AP2–AP3 |
+| Coordinated concurrency cap | 2 |
+| Random-access attempt probability | 0.5 |
+| Maximum backoff counter | 5 |
 
-## Planned file / 计划文件
+Experiment runners in `experiments/` override these defaults for the formal
+sweeps and save their actual configurations with the results.
 
-default_config.m
+The queue snapshot is taken before the control interval.
+Time is normalized and is not calibrated to milliseconds.
 
-This function will return a configuration structure named cfg.
-此函数将返回名为 cfg 的参数结构体。
-
-## Parameters to agree / 待统一参数
-
-- Packet size / 数据包长度
-- Data transmission duration / 数据发送时长
-- Coordination control duration / 协调控制时长
-- Arrival rates for each AP / 各 AP 到达率
-- Interference graph / 干扰图
-- Random-access parameters / 随机接入参数
-- Simulation duration and warm-up / 仿真时长与预热期
-- Random seeds / 随机种子
-
-## Rules / 使用规则
-
-Use consistent units and document each parameter.
-统一单位，并说明每个参数的含义。
-
-Avoid hard-coded experimental parameters in algorithm files.
-避免将实验参数直接写死在算法文件中。
-
-Save the configuration used for each experiment with its results.
-每次实验使用的配置必须随结果保存。
-
-Parameter values and field names are not final yet.
-具体参数数值和字段名称尚未确定。
+Run `setup_project` from the repository root before using the code.
+See the [main README](../README.md) for experiment settings and reproduction steps.

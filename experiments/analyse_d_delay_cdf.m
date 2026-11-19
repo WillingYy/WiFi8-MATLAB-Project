@@ -1,7 +1,8 @@
 clear; clc;
 
 % Read existing runs; do not rerun the simulation.
-batchDir = 'D:\Wireless Communication\Group Project\PartC\results\D_load_20261117_233652';
+wifi8Root = fileparts(fileparts(mfilename('fullpath')));
+batchDir = fullfile(wifi8Root, 'results', 'D_load_20261117_233652');
 outDir = fullfile(fileparts(mfilename('fullpath')), ...
     ['cdf_analysis_' datestr(now,'yyyymmdd_HHMMSS')]);
 T = readtable(fullfile(batchDir,'run_metrics.csv'),'TextType','string');

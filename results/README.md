@@ -1,45 +1,47 @@
-# Simulation Results / 仿真结果
+# Recorded simulation results
 
-Owner: Member D.
-负责人：成员 D。
+Simulation batch directories contain run-level metrics (`run_metrics.csv`),
+saved configurations (`batch_config.mat`), and, where applicable,
+scenario manifests. Analysis subdirectories contain derived summaries
+and comparisons.
 
-This folder stores simulation outputs and the information
-needed to reproduce each experiment.
+## Recorded batches
 
-本文件夹保存仿真输出，以及复现实验所需的信息。
+| Batch directory | Experiment |
+| --- | --- |
+| `D_load_20261117_233652` | Balanced offered loads |
+| `D_imbalance_20261117_235833` | Traffic imbalance |
+| `D_hotspot_20261118_003213` | Hotspot location |
+| `D_graph_20261118_000844` | Conflict graphs, coordinated cap two |
+| `D_noedge_cap3_20261118_002317` | No-conflict coordinated cap three |
+| `D_overhead_20261118_003903` | Coarse overhead sweep |
+| `D_overhead_refine_20261118_010109` | Refined overhead sweep |
+| `D_overhead_long_20261118_012128` | Long-horizon overhead sweep |
 
-## Required records / 必须保存的记录
+## Data availability
 
-- Experiment identifier / 实验编号
-- Configuration / 参数配置
-- Random seeds / 随机种子
-- Code commit identifier / 代码提交编号
-- Raw outputs and calculated metrics / 原始输出与统计指标
-- Unfinished packets and backlog / 未完成包与队列积压
+The balanced-load batch contains 180 original `load_*.mat` run files:
+three loads, 20 replications, and three policies.
+These files provide the packet-level samples required by the CDF analysis.
 
-Use MAT files for MATLAB data and CSV files for summary tables.
-MATLAB 数据使用 MAT 文件，汇总表可使用 CSV 文件。
+Full packet-level MAT traces for the other batches are not bundled.
+Their supplied CSV metrics and configurations support the aggregate
+analyses described in the main README.
 
-## Rules / 保存规则
+A summary CSV cannot replace packet-level samples when reconstructing
+a delay distribution.
 
-Do not overwrite results from different configurations.
-不同配置的结果不得相互覆盖。
+## Output handling
 
-Mark failed, incomplete or superseded runs clearly.
-明确标记失败、未完成或已被替代的运行。
+New simulations and most analyses create timestamped directories.
+Preserve the recorded batches used by the report.
 
-If a code correction affects results, record which experiments
-were rerun and why.
+The load analysis updates `load_summary.csv` and its diagnostic figures
+inside the recorded load batch. Other analyses print their output locations.
 
-代码修正影响结果时，记录重跑了哪些实验及原因。
+Mean per-run P95 and pooled packet P95 are different statistics.
+Unfinished packets are excluded from completion-window delay samples
+and must be considered separately when interpreting congested cases.
 
-Keep large temporary outputs outside Git.
-Commit compact results and configurations needed for the report.
-
-大型临时输出不放入 Git。
-仓库保留报告所需的精简结果与配置。
-
-## Status / 当前状态
-
-No experimental results have been generated yet.
-目前尚未生成实验结果。
+See the [main README](../README.md) for reproduction commands,
+input-folder selection, and report figure and table mappings.

@@ -20,7 +20,7 @@ Analysis and plotting scripts are located in `experiments/`.
 | `hotspot_results.png` | Hotspot-location analysis |
 | `graph_results.png` | Conflict-graph analysis |
 | `load_diagnostics.png` | Balanced-load diagnostics |
-
+| `integration_demo.png` | Figure 3.1: validated single-run integration demonstration |
 ## Regenerating figures
 
 Run `setup_project`, then the corresponding analysis script.

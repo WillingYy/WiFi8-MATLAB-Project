@@ -209,4 +209,3 @@ print(f, fullfile(analysisDir, 'imbalance_results.pdf'), '-dpdf', '-painters');
 savefig(f, fullfile(analysisDir, 'imbalance_results.fig'));
 
 fprintf('Analysis outputs: %s\n', analysisDir)
-winopen(analysisDir)

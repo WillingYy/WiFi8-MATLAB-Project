@@ -165,4 +165,3 @@ savefig(f, fullfile(analysisDir, 'hotspot_results.fig'));
 
 disp(summaryTable(summaryTable.Role ~= "Non-hotspot", :))
 fprintf('Analysis outputs: %s\n', analysisDir)
-winopen(analysisDir)

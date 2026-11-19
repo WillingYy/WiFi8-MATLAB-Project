@@ -2,7 +2,7 @@
 
 **EEEN3008J Wireless Communications | Group 24 | 2026/27**
 
-Members: Li Ziqi, Yao Minghua, Yuan Yi, Lian Yuhang, and Tai Junqi.
+Members: Li Ziqi(D), Yao Minghua(B), Yuan Yi(Leader), Lian Yuhang(C), and Tai Junqi(A).
 
 ## Overview
 

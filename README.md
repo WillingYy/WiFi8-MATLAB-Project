@@ -63,7 +63,6 @@ listed here are under `results/`.
 | `analyse_d_noedge_cap` | First `D_graph_20261118_000844`, then `D_noedge_cap3_20261118_002317` | Section 6.3 concurrency-cap comparison |
 | `analyse_d_overhead` | `D_overhead_long_20261118_012128` | Table 6.5 and long-horizon overhead analysis |
 | `compare_d_overhead_duration` | `D_overhead_refine_20261118_010109` and `D_overhead_long_20261118_012128` | Figure 6.2 and Table 6.6 |
-| `integration_demo.png` | Figure 3.1: validated single-run integration demonstration |
 For example:
 
 ```matlab

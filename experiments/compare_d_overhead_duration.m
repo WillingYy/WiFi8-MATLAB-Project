@@ -1,7 +1,8 @@
 clear; clc;
 
 % Compare existing batches without rerunning the simulation.
-rootDir = 'D:\Wireless Communication\Group Project\PartC\results';
+wifi8Root = fileparts(fileparts(mfilename('fullpath')));
+rootDir = fullfile(wifi8Root, 'results');
 batchDirs = {
     fullfile(rootDir, 'D_overhead_refine_20261118_010109')
     fullfile(rootDir, 'D_overhead_long_20261118_012128')
@@ -57,7 +58,7 @@ R = cell2table(rows, 'VariableNames', {'Tsim','TotalLambda','CtrlRatio', ...
     'Policy','Runs','MeanRunP95','MeanGoodput','MeanUnfinished', ...
     'MeanBacklogChange','MeanBacklogGrowthRate','MeanSecondHalfGrowthRate', ...
     'RunsWithSecondHalfGrowth','MeanWarmupBacklog'});
-outDir = fullfile(fileparts(mfilename('fullpath')), ...
+outDir = fullfile(wifi8Root, 'results', ...
     ['duration_check_' datestr(now, 'yyyymmdd_HHMMSS')]);
 mkdir(outDir);
 writetable(R, fullfile(outDir, 'duration_comparison.csv'));

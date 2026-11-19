@@ -29,6 +29,8 @@ state.t        = 0;
 state.queueLen = zeros(1, numAPs);
 state.headWait = zeros(1, numAPs);
 state.backoff  = zeros(1, numAPs);
+state.rrPointer = 1;
+state.tiePointer = 1;
 
 % Queues: Nx2 [arrivalTime, bits]
 queues = cell(1, numAPs);
@@ -223,6 +225,15 @@ while state.t < cfg.Tsim - 1e-12
             error('simulate_network:policy', 'Unknown policy: %s', policy);
         end
 
+        % Persist scheduling fairness state (the scheduler itself is read-only).
+        if ~isempty(selectedAPs)
+            if strcmp(policy, 'rr')
+                state.rrPointer = mod(selectedAPs(1), numAPs) + 1;
+            elseif strcmp(policy, 'queue')
+                state.tiePointer = mod(selectedAPs(1), numAPs) + 1;
+            end
+        end
+
         % Validate independent set
         if ~is_independent_set(selectedAPs, adjMatrix)
             error('simulate_network:nonIndependent', ...
@@ -304,6 +315,8 @@ end
 % =====================================================================
 function snapshot = local_build_snapshot(state, queues, numAPs)
 snapshot.t        = state.t;
+snapshot.rrPointer = state.rrPointer;
+snapshot.tiePointer = state.tiePointer;
 snapshot.queueLen = zeros(1, numAPs);
 snapshot.headWait = zeros(1, numAPs);
 for ap = 1:numAPs

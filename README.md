@@ -83,6 +83,9 @@ CDF and duration-comparison outputs are saved under `results/`; interactive
 analyses save outputs inside the selected batch folder. The scripts print their
 output locations.
 
+The submitted Figure 6.2 is available as `figures/paired_gain_030.png`.
+It can be regenerated from the saved CSV using `plot_d_paired_gain`,
+without rerunning the simulations.
 ## Generate new simulation batches
 
 After `setup_project`, run the required experiment script:

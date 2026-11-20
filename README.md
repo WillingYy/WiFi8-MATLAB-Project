@@ -61,9 +61,8 @@ listed here are under `results/`.
 | `analyse_d_hotspot` | `D_hotspot_20261118_003213` | Section 6.2 hotspot-location comparison |
 | `analyse_d_graph` | `D_graph_20261118_000844` | Table 6.4 |
 | `analyse_d_noedge_cap` | First `D_graph_20261118_000844`, then `D_noedge_cap3_20261118_002317` | Section 6.3 concurrency-cap comparison |
-| `analyse_d_overhead` | `D_overhead_long_20261118_012128` | Table 6.5 and long-horizon overhead analysis |
-| `compare_d_overhead_duration` | `D_overhead_refine_20261118_010109` and `D_overhead_long_20261118_012128` | Figure 6.2 and Table 6.6 |
-For example:
+| `analyse_d_overhead` | `D_overhead_long_20261118_012128` | Figure 6.2, Table 6.5, and long-horizon overhead analysis |
+| `compare_d_overhead_duration` | `D_overhead_refine_20261118_010109` and `D_overhead_long_20261118_012128` | Figure 6.3 and Table 6.6 |
 
 ```matlab
 analyse_d_delay_cdf

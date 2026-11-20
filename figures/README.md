@@ -8,7 +8,8 @@ Analysis and plotting scripts are located in `experiments/`.
 | Export | Content or report use |
 | --- | --- |
 | `delay_cdf_load_03.png` | Figure 6.1: high-load completed-packet delay CDF |
-| `duration_load_03.png` | Figure 6.2: high-load duration sensitivity |
+| `paired_gain_030.png` | Figure 6.2: paired P95 gain with pointwise 95% bootstrap confidence intervals at total load 0.30 |
+| `duration_load_03.png` | Figure 6.3: high-load duration sensitivity |
 | `delay_cdf_load_01.png` | Completed-packet delay CDF at total load 0.15 |
 | `delay_cdf_load_02.png` | Completed-packet delay CDF at total load 0.30 |
 | `duration_load_01.png` | Duration comparison at total load 0.15 |

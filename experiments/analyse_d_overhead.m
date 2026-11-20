@@ -177,6 +177,58 @@ writetable(gainTable, ...
     fullfile(analysisDir, 'overhead_paired_gain.csv'));
 writetable(crossingTable, ...
     fullfile(analysisDir, 'crossing_candidates.csv'));
+% Standalone report figure: paired P95 gain at total load 0.30.
+G = gainTable(gainTable.AP == 0 & ...
+    abs(gainTable.TotalLambda - 0.30) < 1e-8, :);
+
+fGain = figure('Color', 'w', ...
+    'Position', [100 100 900 550]);
+axGain = axes('Parent', fGain);
+hold(axGain, 'on');
+
+policyIDs = ["rr", "queue"];
+policyNames = {'RR', 'QA'};
+plotColors = [0 0.45 0.70; 0.90 0.35 0];
+plotMarkers = {'o', 's'};
+
+for p = 1:2
+    S = G(string(G.Policy) == policyIDs(p), :);
+    S = sortrows(S, 'CtrlRatio');
+    assert(height(S) == 6 && all(S.ValidPairs == 20), ...
+        'Expected six control ratios and 20 paired runs.');
+
+    errorbar(axGain, S.CtrlRatio, S.MeanRandomMinusCoord, ...
+        S.MeanRandomMinusCoord - S.CI_Low, ...
+        S.CI_High - S.MeanRandomMinusCoord, ...
+        'Color', plotColors(p,:), ...
+        'Marker', plotMarkers{p}, ...
+        'LineWidth', 1.8, 'CapSize', 8, ...
+        'DisplayName', policyNames{p});
+end
+
+yline(axGain, 0, 'k:', 'HandleVisibility', 'off');
+xlabel(axGain, 'Control-to-data duration ratio');
+ylabel(axGain, 'Random-access P95 - coordinated P95 (time units)');
+title(axGain, 'Paired P95 gain | Total arrival rate 0.30');
+legend(axGain, 'Location', 'best');
+grid(axGain, 'on');
+box(axGain, 'on');
+set(axGain, 'FontSize', 12);
+xlim(axGain, [1.55 2.15]);
+xticks(axGain, 1.6:0.1:2.1);
+
+projectRoot = fileparts(fileparts(mfilename('fullpath')));
+figureDir = fullfile(projectRoot, 'figures');
+if ~isfolder(figureDir)
+    mkdir(figureDir);
+end
+
+exportgraphics(fGain, ...
+    fullfile(figureDir, 'overhead_gain_load_02.png'), ...
+    'Resolution', 300);
+exportgraphics(fGain, ...
+    fullfile(figureDir, 'overhead_gain_load_02.pdf'), ...
+    'ContentType', 'vector');
 
 % Generate and export one background figure per offered load.
 for k = 1:nLoads

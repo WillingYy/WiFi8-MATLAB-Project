@@ -1,8 +1,11 @@
 clear; clc;
 
 % Read the final long-horizon paired comparison.
-analysisDir = ['D:\Wireless Communication\Group Project\PartC\results\' ...
-    'D_overhead_long_20261118_012128\analysis_20261118_013651'];
+wifi8Root = fileparts(fileparts(mfilename('fullpath')));
+
+analysisDir = fullfile(wifi8Root, 'results', ...
+    'D_overhead_long_20261118_012128', ...
+    'analysis_20261118_013651');
 
 inputFile = fullfile(analysisDir, 'overhead_paired_gain.csv');
 assert(isfile(inputFile), 'Input CSV not found: %s', inputFile);
@@ -19,8 +22,7 @@ lineStyles = {'-', '--'};
 markers = {'s', '^'};
 
 % Save outputs beside this script.
-outDir = fullfile(fileparts(mfilename('fullpath')), ...
-    'paired_gain_030');
+outDir = fullfile(wifi8Root, 'results', 'paired_gain_030');
 if ~isfolder(outDir)
     mkdir(outDir);
 end
